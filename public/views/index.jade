@@ -1,0 +1,30 @@
+html(lang="en", data-ng-app="top5")
+  head
+    title Top5
+    link(rel="stylesheet", href="css/app.css", type="text/css")
+    script(src="../bower_components/angular/angular.js")
+    script(src="../bower_components/angular-animate/angular-animate.js")
+    script(src="../bower_components/jquery/dist/jquery.min.js")
+    script(src="../js/app.js")
+    script(src="../js/userController.js")
+    script(src="../js/restaurantController.js")
+    script(src="../js/seed.js")
+
+  body(data-ng-controller="UserController as u")
+    
+    //- LOAD SCREEN
+    div.load.page(data-ng-show="currPage === 'load'")
+      img.logo(src="images/top5logo.png")
+      img.loader(src="images/loader.gif")
+
+    //- SPLASH SCREEN
+    include splash
+
+    //- LOGIN VIEW
+    include login
+
+    //- RESTAURANT VIEW
+    include restaurant
+
+    
+    

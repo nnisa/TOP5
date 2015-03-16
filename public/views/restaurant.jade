@@ -1,0 +1,19 @@
+
+//- RESTAURANT VIEW
+div.page(data-ng-controller="RestaurantController as c", data-ng-show="currPage === 'restaurant'")
+  
+  div.restaurant-container.row
+    h1.restaurant-name {{ c.restaurant.name }}
+  div.dish-container
+    div(data-ng-repeat="dish in c.restaurant.dishes|orderBy: dish.likeRank")
+      div.row
+        div.dish-type-container
+          div.dish-type(data-ng-class="{{ dish.type }}")
+        div.dish
+          div.dish-summary(data-ng-click="c.selected = dish.name")
+            h1.dish-name {{ dish.name }}
+            h2.dish-price {{ dish.price | currency }}
+          div.dish-description.animate-show(data-ng-show="c.selected === dish.name")
+            p {{ dish.description }}
+          div.favorite-container
+            div.favorite(data-ng-class="{ liked: dish.favorited }", data-ng-click="favoriteToggle(c.restaurant, dish);")
